@@ -4,10 +4,24 @@
 	<meta charset="UTF-8">
 	<title>AngularMap</title>
 
+	<script src="https://cdn.firebase.com/js/client/2.2.7/firebase.js"></script>
+	<script> 
+		var myFirebaseRef = new Firebase("https://https://sizzling-heat-4646.firebaseio.com/");
+		myFirebaseRef.set({
+			 title: "Hello World!",
+			 author: "Firebase",
+			 location: {
+			    city: "San Francisco",
+			    state: "California",
+			    zip: 94103
+			  }
+		});
+		myFirebaseRef.child("location/city").on("value", function(snapshot) {
+		  	alert(snapshot.val());  // Alerts "San Francisco"
+		});
 	
+	</script>
 </head>
-
-
 <body>
 	test
 </body>
